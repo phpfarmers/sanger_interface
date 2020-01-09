@@ -54,13 +54,13 @@
         $pres = explode('.',C('HTTP_SERVER'));
         $server_name = $pres[1];
         if(in_array($server_name, array('sanger','i-sanger','majorbio'))){
-            // $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'sanger_bio_db', 'host' => '10.100.200.17:27017'));
-            $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'sanger_bio_db', 'host' => 'mongodb://meta:v6m4t7w9y6x5@10.100.1.10/sanger_biodb?authMechanism=SCRAM-SHA-1'));
+            // $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'sanger_bio_db', 'host' => '1.1.1.1:27017'));
+            $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'sanger_bio_db', 'host' => 'mongodb://aaaa:bbbbbb@1.1.1.1/sanger_biodb?authMechanism=SCRAM-SHA-1'));
         }else if(in_array($server_name, array('tsg','tsanger','nsanger'))){
-            $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'tsg_biodb', 'host' => 'mongodb://meta:v6m4t7w9y6x5@10.100.1.10/sanger?authMechanism=SCRAM-SHA-1'));
-            //$this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'tsg_biodb', 'host' => '192.168.10.16:27017'));
+            $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'tsg_biodb', 'host' => 'mongodb://aaa:bbbb@1.1.1.1/sanger?authMechanism=SCRAM-SHA-1'));
+            //$this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'tsg_biodb', 'host' => '1.1.1.1:27017'));
         }else{
-            $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'sanger_biodb', 'host' => '192.168.10.189:27017'));
+            $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'sanger_biodb', 'host' => '1.1.1.1:27017'));
         }
         $this->_egg_nog4 = $this->_sanger_biodb->eggNOG4;
     </td>
