@@ -41,9 +41,7 @@
         $this->_sanger_db->anno_card;
     </td>
     <td>
-        <?php
-            $this->_sanger_db->selectTable('anno_card');
-        ?>
+        $this->_sanger_db->selectTable('anno_card');
     </td>
 </tr>
 <tr>
