@@ -80,6 +80,7 @@
 </table>
 3. 维护各产品线数据连接配置
     > （如report模块）`App\Common\Custom\Config\Report\对应产品\Config.class.php`,新增数据库配置
+    
 ```
 /**
  * 获取当前模块mongo配置数据
