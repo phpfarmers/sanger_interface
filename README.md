@@ -72,7 +72,6 @@
 
         $this->_sanger_biodb = \Common\Custom\Db\Mongo::getInstance(array('db' => $db_name, 'host' => $host));
         $this->_egg_nog4 = $this->_sanger_biodb->selectTable('eggNOG4');
-
     </td>
 </tr>
 </table>
