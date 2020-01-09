@@ -24,3 +24,7 @@ Mongo连接统一说明:
 3、去掉$cursor->timeout(-1)；封装的find方法中已有。
 
 4、维护各产品线数据连接配置（如report模块）App\Common\Custom\Config\Report\对应产品\Config.class.php
+
+<table>
+<tr><td>ss</td></tr>
+</table>
