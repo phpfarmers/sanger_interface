@@ -91,17 +91,17 @@ static public function getDbConfig()
 {
     return array(
         'online'    => array(
-            'host'          => '10.100.1.10',
+            'host'          => '1.1.1.1',
             'user_name'     => 'wgs_v2',
-            'user_password' => 'O1Aj21H1eskKVkui',
-            'db_name'       => 'sanger_dna_wgs_v2',
+            'user_password' => 'aaaaa',
+            'db_name'       => 'bbbbbb',
             'authMechanism' => 'SCRAM-SHA-1',
         ),
         'offline'   => array(
-            'host'          => '10.8.0.203',
+            'host'          => '1.1.1.1',
             'user_name'     => 'wgs_v2',
-            'user_password' => 'GfcRRnDeXvjsNtIr',
-            'db_name'       => 'tsanger_dna_wgs_v2',
+            'user_password' => 'aaaaa',
+            'db_name'       => 'bbbbb',
             'authMechanism' => 'SCRAM-SHA-1',
         ),
     );
