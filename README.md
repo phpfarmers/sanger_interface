@@ -18,7 +18,7 @@
     > 增加方法：`getDbConfig` 用于调试不同模块下的mongo配置文件
 
 6. `App\Common\Custom\Db\Driver\Mongo.class.php`
-    > 增加方法:`remove`用于删除；aggregate聚合查询。
+    > 增加方法:`remove`用于删除；`aggregate`聚合查询。
 
 ### 二、各产品线修改（示例：wgsv2、metag）
 
