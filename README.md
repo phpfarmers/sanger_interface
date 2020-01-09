@@ -79,32 +79,31 @@
 </tr>
 </table>
 3. 维护各产品线数据连接配置
-    > （如report模块）`App\Common\Custom\Config\Report\对应产品\Config.class.php`
+    > （如report模块）`App\Common\Custom\Config\Report\对应产品\Config.class.php`,新增数据库配置
 
-| 功能点 | 内容 |
-| --------- | -----:|
-| 新增数据库配置 | 
-            /**
-             * 获取当前模块mongo配置数据
-             *
-             * @return   array
-             **/
-            static public function getDbConfig()
-            {
-                return array(
-                    'online'    => array(
-                        'host'          => '10.100.1.10',
-                        'user_name'     => 'wgs_v2',
-                        'user_password' => 'O1Aj21H1eskKVkui',
-                        'db_name'       => 'sanger_dna_wgs_v2',
-                        'authMechanism' => 'SCRAM-SHA-1',
-                    ),
-                    'offline'   => array(
-                        'host'          => '10.8.0.203',
-                        'user_name'     => 'wgs_v2',
-                        'user_password' => 'GfcRRnDeXvjsNtIr',
-                        'db_name'       => 'tsanger_dna_wgs_v2',
-                        'authMechanism' => 'SCRAM-SHA-1',
-                    ),
-                );
-            } |
+```
+    /**
+     * 获取当前模块mongo配置数据
+     *
+     * @return   array
+     **/
+    static public function getDbConfig()
+    {
+        return array(
+            'online'    => array(
+                'host'          => '10.100.1.10',
+                'user_name'     => 'wgs_v2',
+                'user_password' => 'O1Aj21H1eskKVkui',
+                'db_name'       => 'sanger_dna_wgs_v2',
+                'authMechanism' => 'SCRAM-SHA-1',
+            ),
+            'offline'   => array(
+                'host'          => '10.8.0.203',
+                'user_name'     => 'wgs_v2',
+                'user_password' => 'GfcRRnDeXvjsNtIr',
+                'db_name'       => 'tsanger_dna_wgs_v2',
+                'authMechanism' => 'SCRAM-SHA-1',
+            ),
+        );
+    } 
+```
