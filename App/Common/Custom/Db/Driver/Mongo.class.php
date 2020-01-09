@@ -390,6 +390,23 @@ class Mongo
     }
 
     /**
+     * 聚合方法
+     *
+     * @param    array
+     *
+     * @return   array
+     **/
+    public function aggregate($params)
+    {
+        ini_set('mongo.long_as_object', 1);    
+        $table_name = $this->_table_name;
+        $table      = $this->_db->$table_name;
+        $infos = $table->aggregate($params);
+        
+        return $infos;
+    }
+
+    /**
      * 返回错误
      *
      * @return   string
