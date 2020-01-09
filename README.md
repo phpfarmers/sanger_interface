@@ -2,17 +2,23 @@
 ## Mongo连接统一说明:
 
 ### 一、公共修改部分(已修改)
-1. App\Common\Conf\config.php 【增加参数:  'OFF_ON_LINE' => 'offline', //指定线上[online]，线下[offline]；配置当前环境】
+> 1. App\Common\Conf\config.php
+    > 【增加参数:  'OFF_ON_LINE' => 'offline', //指定线上[online]，线下[offline]；配置当前环境】
 
-2. App\Common\Custom\Db\Mongo.class.php【增加 getGridFS 方法;全部替换后可以去掉App\Common\conf\config.php 的mongo数据库映射关系，同时去掉App\Report\Model\BaseModel.class.php中的映射处理，见代码备注；】
+> 2. App\Common\Custom\Db\Mongo.class.php
+    > 【增加 getGridFS 方法;全部替换后可以去掉App\Common\conf\config.php 的mongo数据库映射关系，同时去掉App\Report\Model\BaseModel.class.php中的映射处理，见代码备注；】
 
-3. App\Common\Common\function.php【增加函数: 将mongo数组转为mongo字符串连接地址的函数mongoarray2str】
+> 3. App\Common\Common\function.php
+    > 【增加函数: 将mongo数组转为mongo字符串连接地址的函数mongoarray2str】
 
-4. App\Report\Model\BaseModel.class.php【增加页面: report下面model的基类,用户调试读取配置，连接数据库】
+> 4. App\Report\Model\BaseModel.class.php
+    > 【增加页面: report下面model的基类,用户调试读取配置，连接数据库】
 
-5. App\Common\Custom\Config\Report\ConfigFactory.class.php【增加方法：getDbConfig 用于调试不同模块下的mongo配置文件】
+> 5. App\Common\Custom\Config\Report\ConfigFactory.class.php
+    > 【增加方法：getDbConfig 用于调试不同模块下的mongo配置文件】
 
-6. App\Common\Custom\Db\Driver\Mongo.class.php【增加方法:remove用于删除】
+> 6. App\Common\Custom\Db\Driver\Mongo.class.php
+    > 【增加方法:remove用于删除】
 
 二、各产品线修改（示例：wgsv2）
 
