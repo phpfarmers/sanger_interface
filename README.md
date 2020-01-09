@@ -29,15 +29,6 @@
 <tr>
     <td>选择数据表</td>
     <td>
-
-    </td>
-    <td>
-
-    </td>
-</tr>
-<tr>
-    <td>Find放到最后执行</td>
-    <td>
         $this->_sanger_db->anno_card;
     </td>
     <td>
@@ -45,11 +36,42 @@
     </td>
 </tr>
 <tr>
-    <td>其它库连接：如参考库</td>
+    <td>Find放到最后执行</td>
     <td>
-
+        $cursor = $this->_db->find($_condition)->sort(array('created_ts' => -1))->limit(1);
     </td>
     <td>
+        $cursor = $this->_db->sort(array('created_ts' => -1))->limit(1)->find($_condition);
+    </td>
+</tr>
+<tr>
+    <td>其它库连接：如参考库</td>
+    <td>
+        $pres = explode('.',C('HTTP_SERVER'));
+        $server_name = $pres[1];
+        if(in_array($server_name, array('sanger','i-sanger','majorbio'))){
+            // $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'sanger_bio_db', 'host' => '10.100.200.17:27017'));
+            $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'sanger_bio_db', 'host' => 'mongodb://meta:v6m4t7w9y6x5@10.100.1.10/sanger_biodb?authMechanism=SCRAM-SHA-1'));
+        }else if(in_array($server_name, array('tsg','tsanger','nsanger'))){
+            $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'tsg_biodb', 'host' => 'mongodb://meta:v6m4t7w9y6x5@10.100.1.10/sanger?authMechanism=SCRAM-SHA-1'));
+            //$this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'tsg_biodb', 'host' => '192.168.10.16:27017'));
+        }else{
+            $this->_sanger_biodb = \Common\Custom\Mongo::getInstance(array('db' => 'sanger_biodb', 'host' => '192.168.10.189:27017'));
+        }
+        $this->_egg_nog4 = $this->_sanger_biodb->eggNOG4;
+    </td>
+    <td>
+        $db_config_params   = array('module_name' => MODULE_NAME, 'controller_name' => 'Bio','off_on_line' => C('OFF_ON_LINE'));
+        $db_config          = \Common\Custom\Config\Report\ConfigFactory::getDbConfig($db_config_params);
+        $host               = mongoarray2str($db_config);
+        if (empty($host)) {
+            echo '转化mongo数据库连接出错';
+            exit;
+        }
+        $db_name = $this->getMongoDbNameByDbName($db_config['db_name']); //取mongodb库名
+
+        $this->_sanger_biodb = \Common\Custom\Db\Mongo::getInstance(array('db' => $db_name, 'host' => $host));
+        $this->_egg_nog4 = $this->_sanger_biodb->selectTable('eggNOG4');
 
     </td>
 </tr>
